@@ -5,7 +5,7 @@ export const GET = async () => {
   try {
     await connectDB();
 
-    const properties = await Property.find({});
+    const properties = await Property.find({}).sort({ createdAt: -1 });
 
     return new Response(JSON.stringify(properties), { status: 200 });
   } catch (error) {
